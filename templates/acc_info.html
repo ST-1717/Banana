@@ -1,0 +1,185 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+    <script>
+    function type() {
+        var x = document.getElementById("detail_card");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+        function chart() {
+        var x = document.getElementById("chart1");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+        function graph() {
+        var x = document.getElementById("pie1");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+	function change() {
+	var x = document.getElementById("detail_card");
+	var y = document.getElementById("detail_card2");
+	var z = document.getElementById("chart1");
+	var a = document.getElementById("chart2");
+	var b = document.getElementById("pie1");
+	var c = document.getElementById("pie2");
+	var d = document.getElementById("prom1");
+	var e = document.getElementById("prom2");
+        if (x.style.display !== "none") {
+            x.style.display = "none";
+            y.style.display = "block";
+            z.style.display = "none";
+            a.style.display = "block";
+            b.style.display = "none";
+            c.style.display = "block";
+            d.style.display = "none";
+            e.style.display = "block";
+        }
+	}
+	function change_1() {
+	var x = document.getElementById("detail_card");
+	var y = document.getElementById("detail_card2");
+	var z = document.getElementById("chart1");
+	var a = document.getElementById("chart2");
+	var b = document.getElementById("pie1");
+	var c = document.getElementById("pie2");
+	var d = document.getElementById("prom1");
+	var e = document.getElementById("prom2");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+            z.style.display = "block";
+            a.style.display = "none";
+            b.style.display = "block";
+            c.style.display = "none";
+            d.style.display = "block";
+            e.style.display = "none";
+        }
+	}
+    </script>
+    <div class="container" id = "acc_table">
+  <table class="table table-bordered" >
+    <thead>
+      <tr >
+        <th>Account Number</th>
+        <th>Account Balance</th>
+        <th>Type of Card</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr onclick = "change_1()">
+        <td>193-14567-1</td>
+        <td>$1,000,000</td>
+        <td>DBS Visa Debit Card</td>
+      </tr>
+      <tr onclick = "change()">
+        <td>146-56478-3</td>
+        <td>$1,200,000</td>
+        <td>UOB Delight credit Card</td>
+      </tr>
+
+    </tbody>
+     </table>
+    </div>
+  <div id = "user_info">
+  <img src="{{url_for('static', filename='images/user.png')}}" id = "user_img"/>
+  <p id = "ID">User ID :{{ id }}</p>
+  <a href = "{{ url_for('Login')}}" id = "logout">LogOut</a>
+  </div>
+
+  <div class = "extra_info">
+  <div class = "heading">
+  <div class = "minus" onclick="type()">-</div>
+  <div class = "extra_title">Detail Of Your Card</div>
+  </div>
+  <div id = "detail_card">
+      5% Cashback. Every tap,<br>
+      everywhere, everytime.<br>
+      <a href="#" style = "margin-left:500px;font-size: 16px">more information</a>
+  </div>
+  <div id="detail_card2" style="display:none;">
+      Up to 8% rebate at Cold Storage,<br>
+      Market Place, Jasons, Giant and Guardian
+   </div>
+  </div>
+
+  <div class = "extra_info">
+  <div class = "heading">
+  <div class = "minus" onclick="chart()">-</div>
+  <div class = "extra_title">Chart</div>
+  </div>
+   <div id="chart1" style="display:block;width:700px"></div>
+   <div id="chart2" style="display:none;"></div>
+     <script>
+var data = [{
+  x: ['August', 'September', 'October','November','December'],
+  y: [1000000, 1200000, 1450000,1300000,1000000],
+  type: 'bar'
+}];
+
+Plotly.newPlot('chart1', data);
+
+var data1 = [{
+  x: ['August', 'September', 'October','November','December'],
+  y: [1200000, 1300000, 1550000,1300000,1450000],
+  type: 'bar'
+}];
+
+Plotly.newPlot('chart2', data1);
+  </script>
+  </div>
+
+  <div class = "extra_info">
+  <div class = "heading">
+  <div class = "minus" onclick="graph()">-</div>
+  <div class = "extra_title">Bar graph</div>
+  </div>
+  <div id="pie1" style="display:block;width:700px"></div>
+  <div id="pie2" style="display:none;"></div>
+  <script>
+    var data = [{
+	values: [20, 10, 20, 20, 30],
+	labels: ['Food', 'transport', 'Utility','Fashion & Accessories','Others'],
+	type: 'pie'
+	}];
+    Plotly.newPlot('pie1', data);
+
+    var data1 = [{
+	values: [20, 10, 20, 30, 20],
+	labels: ['Food', 'transport', 'Utility','Fashion & Accessories','Others'],
+	type: 'pie'
+	}];
+    Plotly.newPlot('pie2', data1);
+  </script>
+  </div>
+  <div id = "promotion">
+      <div><span style = "text-decoration : underline;font-size: 17px;">Promotions</span></div>
+      <div id = "prom1" style ="font-size: 17px;">
+      • Start tapping and be rewarded with 5% Cashback.
+      Plus, get S$10 Cashback* when you charge S$200
+      to your new DBS Visa Debit Card within the first month.
+      </div>
+      <div id = "prom2" style ="font-size: 17px;display:none;">
+      • Up to 8% rebate at Cold Storage, Market Place, Jasons, Giant and Guardian<br>
+      • 10% off over 4,000 house brands at Cold Storage, Giant and Guardian<br>
+      • Up to 3% rebate on contactless transactions and recurring bills<br>
+      • Free home delivery at Giant IMM, Parkway, Tampines, VivoCity with S$150 min. spend in a single receipt<br>
+      • 0.3% rebate on all other spend<br>
+      </div>
+  </div>
+
+
+
+{% endblock %}

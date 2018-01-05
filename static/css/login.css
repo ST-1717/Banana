@@ -1,0 +1,96 @@
+#Singpass {
+    margin-left: 450px;
+}
+
+.form-group{
+    margin-left:300px
+}
+
+#submit{
+    margin-left:614px
+}
+
+#acc_table{
+    width : 700px;
+    margin-left:125px;
+    margin-top:65px;
+    font-size:17px;
+    padding-right:50px;
+
+}
+
+#user_img{
+    width : 75px;
+    padding-left:3px;
+    padding-top:3px;
+}
+
+#user_info{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #d6d6c2;
+    width:300px;
+    position :absolute;
+    left:65%;
+    top:110px
+
+}
+
+.minus,.extra_title{
+    font-size:25px;
+    display:inline;
+}
+
+.minus{
+    border-style: solid;
+    border-width: 3px;
+    padding-left:10px;
+    padding-right:10px
+}
+.heading{
+    margin-top:50px;
+    margin-left:125px;
+    padding-left:10px;
+    padding-top:3px;
+    padding-bottom:3px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #d6d6c2;
+    width:650px;
+}
+
+#detail_card2,#detail_card,#chart1,#chart2,#pie1,#pie2{
+    margin-left:150px;
+    font-size:27px
+}
+
+
+#promotion{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #d6d6c2;
+    position : absolute;
+    left :65%;
+    top:300px;
+    padding-left:30px;
+    padding-right:30px;
+    padding-top:15px;
+    width:300px;
+    padding-bottom:300px;
+
+}
+
+#ID{
+    position:relative;
+    left:100px;
+    top:-50px;
+    font-size:22px;
+}
+
+#logout{
+    font-size:20px;
+    position:relative;
+    top:-50px;
+    left:200px
+}
+
