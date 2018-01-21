@@ -1,0 +1,4 @@
+John,193-14567-1,DBS Visa Debit Card,11/03/2022
+John,146-56478-3,UOB Delight credit Card,23/04/2020
+Ami,192-56789-2,DBS Visa Debit Card,12/05/2021
+Ami,146-56789-9,UOB Delight credit Card,30/07/2023

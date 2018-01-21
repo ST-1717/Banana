@@ -1,0 +1,44 @@
+#Singpass {
+    margin-left: 450px;
+}
+
+.form-group{
+    margin-left:300px
+}
+
+#submit{
+    margin-left:614px
+}
+
+#acc_table{
+    margin-left:10%;
+    margin-right: 10%;
+    margin-top:65px;
+    font-size:17px;
+    padding-right:50px;
+
+}
+
+.minus,.extra_title{
+    font-size:25px;
+    display:inline;
+}
+
+.minus{
+    border-style: solid;
+    border-width: 3px;
+    padding-left:10px;
+    padding-right:10px
+}
+.heading{
+    margin-top:50px;
+    margin-left:125px;
+    padding-left:10px;
+    padding-top:3px;
+    padding-bottom:3px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #d6d6c2;
+    width:650px;
+}
+

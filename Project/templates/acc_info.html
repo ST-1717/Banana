@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+    <div class="container" id = "acc_table">
+  <table class="table table-bordered" >
+    <thead>
+      <tr>
+        <th>Account Number</th>
+        <th>Account Balance ($)</th>
+        <th>Type of Card</th>
+        <th>Expired Date</th>
+      </tr>
+    </thead>
+    <tbody>
+     {% for acc in acc_info %}
+            {% if name == acc.get_name() %}
+            <tr>
+                <td>{{ acc.get_acc_num() }}</td>
+                <td>{{ acc.get_amount() }}</td>
+                <td>{{ acc.get_type() }}</td>
+                <td>{{ acc.get_date() }}</td>
+            </tr>
+            {% endif %}
+     {% endfor %}
+    </tbody>
+     </table>
+    </div>
+
+  <form class="form-inline" method="POST" >
+  <div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon">Please select</span>
+            <select name="comp_select" class="selectpicker form-control">
+              {% for acc in acc_info %}
+                {% if name == acc.get_name() %}
+              <option value="{{ acc.get_acc_num() }}">{{ acc.get_acc_num() }}</option>
+                  {% endif %}
+              {% endfor %}
+            </select>
+    </div>
+    <div class="input-group">
+            <select name="month_select" class="selectpicker form-control">
+              {% for mon in total_months %}
+              <option value="{{ mon }}">{{ mon }}</option>
+              {% endfor %}
+            </select>
+    </div>
+    <button type="submit" class="btn btn-default">Go</button>
+  </div>
+  </form>
+
+  <div class = "extra_info">
+  <div class = "heading">
+  <div class = "minus" onclick="chart()">-</div>
+  <div class = "extra_title">Chart</div>
+  </div>
+   <div id="chart1" style="width:700px"></div>
+     <script>
+var data = [{
+  x: ['{{ months[4] }}', '{{ months[3] }}', '{{ months[2] }}','{{ months[1] }}','{{ months[0] }}'],
+  y: [{{ amount_month[4] }}, {{ amount_month[3] }}, {{ amount_month[2] }}, {{ amount_month[1] }}, {{ amount_month[0] }}],
+  type: 'bar'
+}];
+
+Plotly.newPlot('chart1', data);
+  </script>
+  </div>
+
+  <div class = "extra_info">
+  <div class = "heading">
+  <div class = "minus" onclick="">-</div>
+  <div class = "extra_title">Transaction Data</div>
+  </div>
+  <br>
+  <div class="container" id = "transaction_table">
+  <table class="table table-bordered" >
+    <thead>
+      <tr>
+        <th>Balance ($)</th>
+        <th>Withdraw / Deposit</th>
+      </tr>
+    </thead>
+    <tbody>
+     {% for i in data %}
+            <tr>
+                <td>{{ i.get_amount() }}</td>
+                <td>{{ i.get_type() }}</td>
+            </tr>
+     {% endfor %}
+    </tbody>
+     </table>
+    </div>
+  </div>
+{% endblock %}
